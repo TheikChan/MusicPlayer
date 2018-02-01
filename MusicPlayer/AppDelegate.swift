@@ -7,15 +7,25 @@
 //
 
 import UIKit
+import AVFoundation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    var audioPlayer = AVAudioPlayer()
+    var isPlay = Bool()
+    var isPause = Bool()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        let songLibrary: SongLibrary = DummySong()
+        
+        let rootViewController: ViewController = window?.rootViewController as! ViewController
+        rootViewController.songLibrary = songLibrary
+        
         return true
     }
 
